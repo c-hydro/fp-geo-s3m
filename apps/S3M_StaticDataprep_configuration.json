@@ -1,0 +1,23 @@
+{
+  "_comment_": "S3M static data configuration file",
+  "version": "1.1.0",
+  "static_data_path" : "/home",
+  "static_data_output_path" : "/home",
+  "static_data_output_name" : "Terrain_Data.nc",
+  "nodata_value" : -9999,
+  "DEM_name" : "dem.txt",
+  "glacier_thickness" : true,
+  "domain" : "NA",
+  "project" : "NA",
+  "Glacier_thickness_name" : "GlacierThickness.txt",
+  "glacier_ID" : true,
+  "Glacier_ID_name" : "GlacierID.txt",
+  "Glacier_debris" : true,
+  "Glacier_debris_name" : "DebrisCoeff.txt",
+  "Area_cell_name" : "areacell.txt",
+  "Glacier_mask_name" : "cdn.txt",
+  "Glacier_value_in_mask" : 51,
+  "deltaH_pivot_table" : true,
+  "deltaH_pivot_table_name" : "PivotTable.txt",
+  "sim_regrid_on_DEM" : true
+}
