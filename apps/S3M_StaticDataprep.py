@@ -1,12 +1,12 @@
 """
 Flood-Proofs - S3M static-data prep
-__date__ = '20210215'
-__version__ = '1.1.0'
+__date__ = '20211213'
+__version__ = '2.0.0'
 __author__ = 'Francesco Avanzi (francesco.avanzi@cimafoundation.org',
              'Fabio Delogu (fabio.delogu@cimafoundation.org',
-__library__ = 'S3M'
+__library__ = 's3m'
 General command line:
-python3 S3M_StaticDataprep.py -settings_file "S3M_StaticDataprep_configuration.json"
+python3 S3MResampler.py -settings_file "hyde_dynamicdata_satellite_snowblending.json"
 """
 
 # -------------------------------------------------------------------------------------
@@ -208,27 +208,28 @@ def main():
     AreaCell.standard_name = 'AreaCell'
     AreaCell.units = 'm^2'
     AreaCell.scale_factor = 1
-    
+
     # Import (and optionally resample) Domain Mask
-    Mask_file_name = os.path.join(file_data['static_data_path'], file_data['mask_name'])
-    Mask_obj = get_file_raster(Mask_file_name)
+    if file_data['mask']:
+        Mask_file_name = os.path.join(file_data['static_data_path'], file_data['mask_name'])
+        Mask_obj = get_file_raster(Mask_file_name)
 
-    if file_data['sim_regrid_on_DEM']:
-        Mask_obj = regrid_raster(Mask_obj, DEM_obj)
+        if file_data['sim_regrid_on_DEM']:
+            Mask_obj = regrid_raster(Mask_obj, DEM_obj)
 
-    # write
-    Mask = ds.createVariable("Mask", "f", ("Y", "X",))
+        # write
+        Mask = ds.createVariable("Mask", "f", ("Y", "X",))
 
-    # attributes AreaCell
-    Mask[:] = np.flipud(Mask_obj['values'])
-    Mask.grid_mapping = ''
-    Mask.coordinates = ''
-    Mask.cell_method = ''
-    Mask.pressure_level = ''
-    Mask.long_name = 'Mask'
-    Mask.standard_name = 'Mask'
-    Mask.units = '-'
-    Mask.scale_factor = 1
+        # attributes AreaCell
+        Mask[:] = np.flipud(Mask_obj['values'])
+        Mask.grid_mapping = ''
+        Mask.coordinates = ''
+        Mask.cell_method = ''
+        Mask.pressure_level = ''
+        Mask.long_name = 'Mask'
+        Mask.standard_name = 'Mask'
+        Mask.units = '-'
+        Mask.scale_factor = 1
 
     # Import (and optionally resample) Glacier Mask
     Glacier_mask_file_name = os.path.join(file_data['static_data_path'], file_data['Glacier_mask_name'])
