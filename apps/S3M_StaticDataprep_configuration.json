@@ -12,6 +12,8 @@
   "Glacier_thickness_name" : "GlacierThickness.txt",
   "glacier_ID" : true,
   "Glacier_ID_name" : "GlacierID.txt",
+  "mask" : true,
+  "mask_name" : "vda.mask.txt",
   "Glacier_debris" : true,
   "Glacier_debris_name" : "DebrisCoeff.txt",
   "Area_cell_name" : "areacell.txt",

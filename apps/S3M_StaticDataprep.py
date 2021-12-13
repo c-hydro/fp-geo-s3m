@@ -208,6 +208,27 @@ def main():
     AreaCell.standard_name = 'AreaCell'
     AreaCell.units = 'm^2'
     AreaCell.scale_factor = 1
+    
+    # Import (and optionally resample) Domain Mask
+    Mask_file_name = os.path.join(file_data['static_data_path'], file_data['mask_name'])
+    Mask_obj = get_file_raster(Mask_file_name)
+
+    if file_data['sim_regrid_on_DEM']:
+        Mask_obj = regrid_raster(Mask_obj, DEM_obj)
+
+    # write
+    Mask = ds.createVariable("Mask", "f", ("Y", "X",))
+
+    # attributes AreaCell
+    Mask[:] = np.flipud(Mask_obj['values'])
+    Mask.grid_mapping = ''
+    Mask.coordinates = ''
+    Mask.cell_method = ''
+    Mask.pressure_level = ''
+    Mask.long_name = 'Mask'
+    Mask.standard_name = 'Mask'
+    Mask.units = '-'
+    Mask.scale_factor = 1
 
     # Import (and optionally resample) Glacier Mask
     Glacier_mask_file_name = os.path.join(file_data['static_data_path'], file_data['Glacier_mask_name'])
