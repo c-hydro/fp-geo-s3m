@@ -6,7 +6,7 @@ __author__ = 'Francesco Avanzi (francesco.avanzi@cimafoundation.org',
              'Fabio Delogu (fabio.delogu@cimafoundation.org',
 __library__ = 's3m'
 General command line:
-python3 S3MResampler.py -settings_file "hyde_dynamicdata_satellite_snowblending.json"
+python3 S3M_StaticDataprep.py -settings_file "S3M_StaticDataprep_configuration.json"
 """
 
 # -------------------------------------------------------------------------------------
