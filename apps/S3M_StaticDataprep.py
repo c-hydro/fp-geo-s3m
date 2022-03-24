@@ -1,7 +1,7 @@
 """
 Flood-Proofs - S3M static-data prep
-__date__ = '20211213'
-__version__ = '2.0.0'
+__date__ = '20220324'
+__version__ = '2.0.1'
 __author__ = 'Francesco Avanzi (francesco.avanzi@cimafoundation.org',
              'Fabio Delogu (fabio.delogu@cimafoundation.org',
 __library__ = 's3m'
@@ -25,8 +25,8 @@ from src.s3m_io.S3M_io import get_file_raster
 # -------------------------------------------------------------------------------------
 # Algorithm information
 alg_name = 'FP S3M STATIC-DATA PREPARATION TOOL'
-alg_version = '1.1.0'
-alg_release = '2021-02-15'
+alg_version = '2.0.1'
+alg_release = '2022-03-24'
 
 # -------------------------------------------------------------------------------------
 # Script Main
@@ -111,7 +111,7 @@ def main():
     # attributes terrain
     Terrain[:] = np.flipud(DEM_obj['values'])
     Terrain.grid_mapping = ''
-    Terrain.coordinates = ''
+    Terrain.coordinates = 'Longitude Latitude'
     Terrain.cell_method = ''
     Terrain.pressure_level = ''
     Terrain.long_name = 'Terrain'
@@ -133,7 +133,7 @@ def main():
         # attributes thickness
         Thickness[:] = np.flipud(Thickness_obj['values'])
         Thickness.grid_mapping = ''
-        Thickness.coordinates = ''
+        Thickness.coordinates = 'Longitude Latitude'
         Thickness.cell_method = ''
         Thickness.pressure_level = ''
         Thickness.long_name = 'Thickness'
@@ -155,7 +155,7 @@ def main():
         # attributes thickness
         Glacier_ID[:] = np.flipud(GlacierID_obj['values'])
         Glacier_ID.grid_mapping = ''
-        Glacier_ID.coordinates = ''
+        Glacier_ID.coordinates = 'Longitude Latitude'
         Glacier_ID.cell_method = ''
         Glacier_ID.pressure_level = ''
         Glacier_ID.long_name = 'Glacier_ID'
@@ -201,7 +201,7 @@ def main():
     # attributes AreaCell
     AreaCell[:] = np.flipud(AreaCell_obj['values'])
     AreaCell.grid_mapping = ''
-    AreaCell.coordinates = ''
+    AreaCell.coordinates = 'Longitude Latitude'
     AreaCell.cell_method = ''
     AreaCell.pressure_level = ''
     AreaCell.long_name = 'AreaCell'
@@ -223,7 +223,7 @@ def main():
         # attributes AreaCell
         Mask[:] = np.flipud(Mask_obj['values'])
         Mask.grid_mapping = ''
-        Mask.coordinates = ''
+        Mask.coordinates = 'Longitude Latitude'
         Mask.cell_method = ''
         Mask.pressure_level = ''
         Mask.long_name = 'Mask'
@@ -251,7 +251,7 @@ def main():
     # attributes thickness
     GlacierMask[:] = np.flipud(Glacier_Mask_obj['values'])
     GlacierMask.grid_mapping = ''
-    GlacierMask.coordinates = ''
+    GlacierMask.coordinates = 'Longitude Latitude'
     GlacierMask.cell_method = ''
     GlacierMask.pressure_level = ''
     GlacierMask.long_name = 'GlacierMask'
@@ -273,7 +273,7 @@ def main():
         # attributes thickness
         Glacier_debris[:] = np.flipud(Glacier_debris_obj['values'])
         Glacier_debris.grid_mapping = ''
-        Glacier_debris.coordinates = ''
+        Glacier_debris.coordinates = 'Longitude Latitude'
         Glacier_debris.cell_method = ''
         Glacier_debris.pressure_level = ''
         Glacier_debris.long_name = 'Glacier_debris'
