@@ -1,6 +1,6 @@
 {
   "_comment_": "S3M static data configuration file",
-  "version": "1.1.0",
+  "version": "2.1.0",
   "static_data_path" : "/home",
   "static_data_output_path" : "/home",
   "static_data_output_name" : "Terrain_Data.nc",

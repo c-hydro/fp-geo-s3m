@@ -1,7 +1,7 @@
 """
 Flood-Proofs - S3M static-data prep
-__date__ = '20220324'
-__version__ = '2.0.1'
+__date__ = '20220518'
+__version__ = '2.1.0'
 __author__ = 'Francesco Avanzi (francesco.avanzi@cimafoundation.org',
              'Fabio Delogu (fabio.delogu@cimafoundation.org',
 __library__ = 's3m'
@@ -17,16 +17,16 @@ import numpy as np
 import pandas as pd
 from netCDF4 import Dataset
 from argparse import ArgumentParser
-from src.s3m_geotools.S3M_geotools import regrid_raster
-from src.s3m_io.S3M_io import get_file_raster
+from S3M_geotools import regrid_raster
+from S3M_io import get_file_raster
 
 # -------------------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------------------
 # Algorithm information
 alg_name = 'FP S3M STATIC-DATA PREPARATION TOOL'
-alg_version = '2.0.1'
-alg_release = '2022-03-24'
+alg_version = '2.1.0'
+alg_release = '2022-05-18'
 
 # -------------------------------------------------------------------------------------
 # Script Main
