@@ -2,6 +2,11 @@
 Changelog
 =========
 
+Version 2.1.0 (20220518)
+========================
+- Moved function to the main apps folder and deleted the src folder
+- Added an example of bash file to run the script
+
 Version 2.0.1 (20220324)
 ========================
 - Added coordinate metadata field for each layer for compatibility with other s3m tools
